@@ -17,9 +17,22 @@ public class DemoFileApp {
         for (File fd : dir.listFiles()) {
             System.out.println("f. = " + fd.getName() + ": " + fd.length());
         }
-        
-        
 
+        long l = printAndGetSize(dir);
+        System.out.println("l = " + l);
+    }
 
+    public static long printAndGetSize (File f) {
+
+        if (f.isFile())
+            return f.length();
+        
+        // else => Directory
+        long length = 0;
+        for (File fd : f.listFiles()) {
+            length += printAndGetSize(fd);
+        }
+        
+        return length;
     }
 }
