@@ -1,9 +1,6 @@
 package org.campus02.fileinputdemo;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class FileInputDemoApp {
     public static void main(String[] args) {
@@ -17,9 +14,12 @@ public class FileInputDemoApp {
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(f);
-            int byteRead = fis.read();
+
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            int byteRead = bis.read();
             System.out.println("byteRead = " + byteRead);
-            byteRead = fis.read();
+            byteRead = bis.read();
             System.out.println("byteRead = " + byteRead);
             
         } catch (FileNotFoundException e) {
