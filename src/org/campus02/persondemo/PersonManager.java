@@ -48,6 +48,10 @@ public class PersonManager {
 
     }
 
+    public ArrayList<Person> getPersons() {
+        return persons;
+    }
+
     public void print() {
         System.out.println("print persons");
         for (Person p : persons) {

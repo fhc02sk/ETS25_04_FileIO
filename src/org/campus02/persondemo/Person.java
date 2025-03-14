@@ -1,6 +1,6 @@
 package org.campus02.persondemo;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
     private String firstname;
     private String lastname;
@@ -43,5 +43,15 @@ public class Person {
 
     public void setBirthplace(String birthplace) {
         this.birthplace = birthplace;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        int comp = o.getLastname().compareTo(this.getLastname());
+        if (comp == 0) {
+            return this.getFirstname().compareTo(o.getFirstname());
+        }
+        return comp;
+
     }
 }
