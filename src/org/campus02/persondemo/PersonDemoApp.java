@@ -23,9 +23,7 @@ public class PersonDemoApp {
                   - Birthplace
              */
 
-            ArrayList<Person> persons = pm.getPersons();
-
-            Collections.sort(persons, new BirthplaceComparator());
+            ArrayList<Person> persons = pm.sort(new BirthplaceComparator());
             System.out.println("sorting----");
             for (Person p : persons) {
                 System.out.println(p);

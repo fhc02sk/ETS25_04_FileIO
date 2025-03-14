@@ -3,6 +3,8 @@ package org.campus02.persondemo;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PersonManager {
 
@@ -45,6 +47,17 @@ public class PersonManager {
             throw new PersonLoadException("IOException: " + path, e);
         }
 
+
+    }
+
+    public ArrayList<Person> sort(Comparator<Person> comp) {
+        if (comp == null) {
+            Collections.sort(persons);
+        } else {
+            Collections.sort(persons, comp);
+        }
+
+        return persons;
 
     }
 
